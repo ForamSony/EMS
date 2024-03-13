@@ -54,4 +54,6 @@ class Employee(AbstractBaseUser):
         if self.emp_role == "Employee":
             self.is_admin = False
             self.is_staff = False
+
         super().save(*args, **kwargs)
+
