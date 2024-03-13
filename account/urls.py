@@ -1,7 +1,7 @@
 from django.urls import path, include
 from .views import (EmployeeViewSet, EmployeeRegistrationView, EmployeeLoginView, TokenRefreshView, LogoutView,
                     EmployeeProfileView, EmployeeChangePasswordView, SendPasswordResetEmailView,
-                    UserPasswordResetView)
+                    UserPasswordResetView,scan_qr_code,generate_qr_code)
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -18,4 +18,6 @@ urlpatterns = [
     path("changepassword/", EmployeeChangePasswordView.as_view(), name="changepassword"),
     path('send-password-reset-email/', SendPasswordResetEmailView.as_view(), name="SendPasswordResetEmail"),
     path('reset-password/<uid>/<token>/', UserPasswordResetView.as_view(), name="reset_password"),
+    path('scan/', scan_qr_code, name='scan_qr_code'),
+    path('generate-qr/', generate_qr_code, name='generate_qr_code'),
 ]
